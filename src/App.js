@@ -1,10 +1,9 @@
-import UseCallback_demo from "./2. React hooks/hook_UseCallBack/useCallback_demo";
-
+import UseReducer from "./2. React hooks/hook_useReducer/useReducer";
 
 function App() {
   return (
     <div>
-      <UseCallback_demo />
+      <UseReducer />
     </div>
   );
 }
