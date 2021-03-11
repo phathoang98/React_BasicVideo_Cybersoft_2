@@ -10,9 +10,10 @@ function UseState_Demo(props) {
      * 
      *      + "Class Component" khi render sẽ chỉ chạy 1 số Lifecycle 
      *      +  Còn với "Function Component" : KO có Lifecycle 
-     *        -->  khi render sẽ chạy lại hết Component (nhược điểm ảnh hưởng đến Performance)
-     *      + Nhưng ko thể so sánh hiệu năng code chạy giữa Hook và Class Component 
-     *          hiệu năng tốt tùy vào cách code 
+     *      -->  khi render sẽ chạy lại hết tất cả các thành phần của Component (nhược điểm ảnh hưởng đến Performance)
+     * 
+     *      + Nhưng "KO THỂ SO SÁNH" hiệu năng code chạy giữa Hook và Class Component 
+     *          hiệu năng tốt tùy vào cách viết code 
      */
 
     // Biến let với mảng bên dưới gọi là : "tuple"

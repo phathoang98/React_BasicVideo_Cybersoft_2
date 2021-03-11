@@ -1,10 +1,10 @@
-import UseState_Demo from "./2. React hooks/useState_Demo";
+import UseCallback_demo from "./2. React hooks/hook_UseCallBack/useCallback_demo";
 
 
 function App() {
   return (
     <div>
-      <UseState_Demo />
+      <UseCallback_demo />
     </div>
   );
 }

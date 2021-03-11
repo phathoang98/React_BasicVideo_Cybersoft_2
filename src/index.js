@@ -5,14 +5,16 @@ import reportWebVitals from './reportWebVitals';
 
 // ---- Import Material UI
 
-import { ThemeProvider } from "@material-ui/core/styles";
+// import { ThemeProvider } from "@material-ui/core/styles";
 
 
 ReactDOM.render(
 
-  <ThemeProvider>
-    <App />
-  </ThemeProvider>
+  // <ThemeProvider>
+
+  // </ThemeProvider>
+
+  <App />
 
   ,
   document.getElementById('root')
