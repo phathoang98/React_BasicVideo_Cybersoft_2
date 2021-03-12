@@ -1,9 +1,9 @@
-import UseReducer from "./2. React hooks/hook_useReducer/useReducer";
+import ReduxApp_demo from "./2. React hooks/demo_Redux_App/reduxApp_demo";
 
 function App() {
   return (
     <div>
-      <UseReducer />
+      <ReduxApp_demo />
     </div>
   );
 }
