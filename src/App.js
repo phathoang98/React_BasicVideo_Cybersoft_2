@@ -1,9 +1,9 @@
-import ReduxApp_demo from "./2. React hooks/hook_useSelector_useDispatch/reduxApp_demo";
+import Ex2UseSpring from "./2. React hooks/React-Spring/ex2UseSpring";
 
 function App() {
   return (
     <div>
-      <ReduxApp_demo />
+      <Ex2UseSpring />
     </div>
   );
 }
