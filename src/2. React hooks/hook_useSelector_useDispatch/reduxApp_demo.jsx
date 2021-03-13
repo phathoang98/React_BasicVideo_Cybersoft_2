@@ -7,6 +7,7 @@
 
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
+import { addCommentAction } from '../../Redux/actions/reduxAppAction';
 
 
 /**
@@ -19,14 +20,23 @@ import { useDispatch, useSelector } from "react-redux";
 function ReduxApp_demo(props) {
 
     /**
-     *  --- Dùng:  "useSelector" thay cho mapStateToProp của Class Component 
-     *          ĐỂ LẤY DỮ LIỆU VỀ
+     *  "useSelector" thay cho mapStateToProp của Class Component 
+     *       => ĐỂ LẤY DỮ LIỆU VỀ
      */
 
     let comments = useSelector(state => state.FakeBookReducer.comments)
 
     /**
-     * ---- Lấy thông tin người dùng nhập vào
+     *  "useDispatch" thay cho mapDispatchToProps của Class Component
+     *      => Để Gửi giá trị lên reducer
+     */
+
+    let dispatch = useDispatch();
+
+
+
+    /**
+     * ------- Lấy thông tin người dùng nhập vào
      */
 
     let [userComment, setUserComment] = useState({
@@ -41,19 +51,32 @@ function ReduxApp_demo(props) {
         let { value, name } = e.target;
 
         setUserComment({
-            // Vì là hook nên phải có dòng code bên dưới mới có thể show hết tất cả các thuộc tính trong State
-            // Và lấy được hết tất cả giá trị input nhập vào
 
-            ...userComment, // Bắt buộc phải có 
+            ...userComment, // Vì là Function Component(hook) nên phải có dòng code này , class Component thì KO cần 
+            // Nếu KO có: khi nhập vào ô input giá trị mới , sẽ bị mất giá trị cũ vừa nhập trước đó , KO lưu vào State
+
             [name]: value
         })
     }
 
+    /**
+     *  -------- Nút Submit : đưa thông tin người dùng đã nhập lên reducer 
+     */
+
+
     const handleComment = (e) => {
 
         // Chặn browser reload
+        e.preventDefault();
 
-        e.preventDefault()
+        let usComment = { ...userComment, avatar: `https://i.pravatar.cc/60?u=${userComment.name}` }
+
+        // let action = {
+        //     type: 'ADD_COMMENT',
+        //     userComment: usComment
+        // }
+
+        dispatch(addCommentAction(usComment)) // action đc gửi qua cho Reducer xử lý 
 
     }
 
@@ -91,7 +114,7 @@ function ReduxApp_demo(props) {
 
                     <div className="form-group">
                         <h5 className="card-title">Content</h5>
-                        <input className="form-control" name="Content" onChange={handleChange} />
+                        <input className="form-control" name="content" onChange={handleChange} />
                     </div>
 
                     <div className="form-group">

@@ -10,6 +10,14 @@ const stateDefault = {
 
 const FakeBookReducer = (state = stateDefault, action) => {
 
+    switch (action.type) {
+
+        case "ADD_COMMENT": {
+
+            state.comments = [...state.comments, action.userComment]
+            return { ...state }
+        }
+    }
 
     return { ...state }
 }

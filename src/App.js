@@ -1,4 +1,4 @@
-import ReduxApp_demo from "./2. React hooks/demo_Redux_App/reduxApp_demo";
+import ReduxApp_demo from "./2. React hooks/hook_useSelector_useDispatch/reduxApp_demo";
 
 function App() {
   return (
