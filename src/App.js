@@ -1,9 +1,9 @@
-import Ex2UseSpring from "./2. React hooks/React-Spring/ex2UseSpring";
+import UseTransition from "./2. React hooks/React-Spring/useTransition";
 
 function App() {
   return (
     <div>
-      <Ex2UseSpring />
+      <UseTransition />
     </div>
   );
 }
