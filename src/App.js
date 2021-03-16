@@ -1,9 +1,9 @@
-import UseTransition from "./2. React hooks/React-Spring/useTransition";
+import GameBauCua from "./3. BaiTapTongHop-Hook/gameBauCua";
 
 function App() {
   return (
     <div>
-      <UseTransition />
+      <GameBauCua />
     </div>
   );
 }

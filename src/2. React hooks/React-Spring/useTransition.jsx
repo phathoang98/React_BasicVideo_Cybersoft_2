@@ -37,14 +37,16 @@ function UseTransition(props) {
             }
         })
 
-
+    /**
+     *  --------------- RENDER GIAO DIỆN CHÍNH 
+     */
 
     let renderItem = () => {
 
         return propsUseTransition.map(({ props, item, key }, index) => {
             return (
                 <animated.div style={props}
-                    className="bg-dark text-white p-2 my-3 text-center" key={index}
+                    className="bg-dark text-white p-1 my-2 text-center" key={index}
                 >
                     <div className="text-right">
                         <button
@@ -53,7 +55,7 @@ function UseTransition(props) {
                         >X</button>
                     </div>
 
-                    <h3>{item.title}</h3>
+                    <h4>{item.title}</h4>
                     <p>{item.content}</p>
                 </animated.div>
             )
@@ -62,7 +64,7 @@ function UseTransition(props) {
 
 
     /**
-     *  ---- Lấy thông tin nhập vào để tạo Tag mới
+     *  --------- Lấy thông tin nhập vào để tạo Tag mới
      */
 
     let handleChange = (e) => {
@@ -74,7 +76,7 @@ function UseTransition(props) {
     }
 
     /**
-     *  ---- NÚT ADD ARTICLE 
+     *  --------- NÚT ADD ARTICLE 
      */
 
     let handleSubmit = () => {
@@ -83,11 +85,12 @@ function UseTransition(props) {
         //  mà thời gian thì sẽ tăng nên => sẽ KO BỊ TRÙNG NHAU
         let item = { ...article, id: Date.now() };
 
+        // setState lại cho Mảng chính --> thêm mảng State article mới vào 
         setArrayItem([...arrItem, item])
     }
 
     /**
-     *  ---- NÚT XÓA ITEM
+     *  --------- NÚT XÓA ITEM
      */
 
     const deleteItem = (id) => {
