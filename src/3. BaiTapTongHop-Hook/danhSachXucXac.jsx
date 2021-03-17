@@ -23,12 +23,12 @@ function DanhSachXucXac(props) {
                 <h6 className="pt-4" style={{ marginLeft: '65px' }}>Đĩa xốc xúc xắc</h6>
 
                 <div className="row" style={{ marginTop: -20 }}>
-                    <div className="col-4 text-right" style={{ marginLeft: 55 }}>
+                    <div className="col-4 text-right" style={{ marginLeft: 95 }}>
                         <XucXac xucXacItem={mangXucXac[0]} />
                     </div>
                 </div>
 
-                <div className="row" style={{ marginTop: -40 }}>
+                <div className="row ml-4" style={{ marginTop: -40 }}>
 
                     <div className="col-4 text-right">
                         <XucXac xucXacItem={mangXucXac[1]} />

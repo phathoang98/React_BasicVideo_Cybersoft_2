@@ -11,7 +11,7 @@ function QuanCuoc(props) {
 
 
     /**
-     *  ------- Animation cho NÚT TĂNG - GIẢM
+     *  ------- Animation cho NÚT TĂNG - GIẢM : "useSpring" 
      * 
      *     * Tạo 2 const bên dưới vì phải đặt tên khác nhau ở props , nếu dùng chung tên khi click 1 nút , nút còn
      *          lại cũng sẽ bị ảnh hưởng 
@@ -23,7 +23,7 @@ function QuanCuoc(props) {
         return {
 
             // Trạng thái đích đến
-            to: { scale: 1 },
+            to: { scale: 1.2 },
 
             // Trạng thái ban đầu
             from: { scale: 0.8 },
@@ -39,7 +39,7 @@ function QuanCuoc(props) {
         return {
 
             // Trạng thái đích đến
-            to: { scale: 1 },
+            to: { scale: 1.2 },
 
             // Trạng thái ban đầu
             from: { scale: 0.8 },
@@ -72,11 +72,14 @@ function QuanCuoc(props) {
                             tangGiam: true
                         })
 
+                        // ---- set : giúp cho hiệu ứng Animation đc render lại , sau mỗi lần click  
+                        // ( nếu KO có set: Animation sẽ chỉ hiện ra 1 lần duy nhất khi mới load lại web)
+
                         // --- Khi click zoom to zoom nhỏ (giống toggle) tùy ý chỉnh kích thước
 
                         setIncrease({ scale: 0.8 }) // Hết hành động click nhỏ xuống
 
-                        setIncrease({ scale: 1 }) // khi Click vào scale to lên 
+                        setIncrease({ scale: 1.2 }) // khi Click vào scale to lên 
 
                     }
 
@@ -102,7 +105,7 @@ function QuanCuoc(props) {
                         })
 
                         setDecrease({ scale: 0.8 })
-                        setDecrease({ scale: 1 })
+                        setDecrease({ scale: 1.2 })
 
                     }}
 
