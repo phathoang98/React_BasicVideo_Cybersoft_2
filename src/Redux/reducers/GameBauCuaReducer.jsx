@@ -33,7 +33,11 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
 
+
+        // ------ NÚT TĂNG GIẢM :
+
         case 'DAT_CUOC_BAU_CUA': {
+
             /**
              * -- Tìm trong danhSachCuoc => quân cược nào đc click sẽ tăng hoặc giảm điểm
              */
@@ -43,7 +47,7 @@ export default (state = initialState, action) => {
             const danhSachCuocUpdate = [...state.danhSachCuoc]
             const index = danhSachCuocUpdate.findIndex(qc => qc.ma === action.quanCuoc.ma)
 
-            if (index != -1) { // khác -1 , có nghĩa là tồn tại 
+            if (index !== -1) { // khác -1 , có nghĩa là tồn tại 
 
                 if (action.tangGiam) {  // tangGiam :true  
 
@@ -64,14 +68,22 @@ export default (state = initialState, action) => {
             }
 
             state.danhSachCuoc = danhSachCuocUpdate
+
+            return { ...state }
         }
 
 
+        // ----------- "NÚT XỐC" CÁC QUÂN XÚC XẮC 
+
         case 'PLAY_GAME_BAU_CUA': {
+
+            /**
+             *  ------------ RENDER NGẪU NHIÊN 3 CON XÚC XẮC 
+             */
 
             const mangXucXacNgauNhien = [];
 
-            // --- Tạo vòng lặp để render ngẫu nhiên ra 3 con xúc xắc
+            //  Dùng vòng lặp để duyệt và tạo ngẫu nhiên ra 3 con xúc xắc
 
             for (let i = 0; i < 3; i++) {
                 // Tạo ra 1 số ngẫu nhiên từ 0 -> 5 , ứng với 5 phần tử của danhSachCuoc
@@ -82,13 +94,74 @@ export default (state = initialState, action) => {
 
                 // Sau đó được thêm vào mangXucXacNgauNhien mới tạo
                 mangXucXacNgauNhien.push(xucXacNgauNhien)
+
             }
-
-            // --- Cập nhật lại mảng xúc xắc state.mangXucXac = mangXucXacNgauNhien
-
+            // Cập nhật lại mảng xúc xắc state.mangXucXac = mangXucXacNgauNhien
             state.mangXucXac = mangXucXacNgauNhien
+
+
+            /**
+             *  ------------- XỬ LÝ TĂNG ĐIỂM THƯỞNG
+             */
+
+            // Duyệt mảng xúc xắc ngẫu nhiên vừa đc random ra , duyệt cho cả 3 quân và so sánh với các quân cược 
+            mangXucXacNgauNhien.forEach((xucXacNN, index) => {
+
+                // Sau đó tìm "vị trí quân cược mà ta click" đặt cược
+                //   so sánh có mấy quân giống trong các xúc xắc ngẫu nhiên vừa đc random
+
+                let indexDSCuoc = state.danhSachCuoc.findIndex(qc => qc.ma === xucXacNN.ma)
+
+                // Khi đã tìm xong rồi --> tăng điểm thưởng = cách lấy điểm cược của quân ta click + vào "tiền thưởng" ban đầu  
+
+                if (index !== -1) {
+                    state.tongDiem += state.danhSachCuoc[indexDSCuoc].diemCuoc
+                }
+
+            })
+
+            /**
+             *  -------------- XỬ LÝ HOÀN TIỀN Ở CÁC QUÂN CƯỢC KHI PLAY GAME XONG
+             */
+
+            // Duyệt Mảng danhSachCuoc để tìm ra quân cược được click 
+
+            state.danhSachCuoc.forEach((qc, index) => {
+
+                // Sau đó tìm vị trí các Xúc Xắc Ngẫu Nhiên trong mảng so sánh với các Quân Cược ở danhSachCuoc ta vừa ấn cược 
+                let indexXucXacNN = mangXucXacNgauNhien.findIndex(xucXacNN => xucXacNN.ma === qc.ma)
+
+                // Khi đã tìm xong
+                if (indexXucXacNN !== -1) {
+
+                    // Lấy điểm cược ở quân đó CỘNG vào cho tiền thưởng 
+                    state.tongDiem += qc.diemCuoc
+                }
+
+            })
+
+            // Duyệt mảng danhSachCuoc để Refresh lại tiền cược ở mỗi quân cược khi Play Game xong 
+
+            state.danhSachCuoc = state.danhSachCuoc.map((qc, index) => {
+                return { ...qc, diemCuoc: 0 }
+            })
+
             return { ...state }
 
+        }
+
+        /**
+         *  --------------- NÚT CHƠI LẠI 
+         */
+
+        case 'CHOI_LAI': {
+
+            state.tongDiem = 1000;
+            state.danhSachCuoc = state.danhSachCuoc.map((qc, index) => {
+                return { ...qc, diemCuoc: 0 }
+            })
+
+            return { ...state }
         }
 
         default:

@@ -18,7 +18,7 @@ function DanhSachCuoc(props) {
 
         return danhSachCuoc.map((item, index) => {
             return (
-                <div className="col-4 mt-2" key={index}>
+                <div className="col-4 mt-1" key={index}>
                     <QuanCuoc quanCuoc={item} />
                 </div>
             )

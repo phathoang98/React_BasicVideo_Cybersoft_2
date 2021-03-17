@@ -1,15 +1,17 @@
 import React from 'react';
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 
 function DiemCuoc(props) {
+
+    const dispatch = useDispatch()
 
     const tongDiem = useSelector(state => state.GameBauCuaReducer.tongDiem)
 
     return (
         <div>
-            <h3 className="text-center display-4" style={{ color: '#2EFE2E' }}>
+            <h1 className="text-center display-4" style={{ color: '#2EFE2E' }}>
                 Game Bầu Cua
-            </h3>
+            </h1>
 
             <div className="text-center mt-4">
                 <span style={{ fontSize: '20px', borderRadius: '5%' }}
@@ -20,7 +22,10 @@ function DiemCuoc(props) {
             </div>
 
             <div className="text-center m-4">
-                <button style={{ fontSize: '15px', borderRadius: '5%' }}
+                <button onClick={() => dispatch({
+                    type: 'CHOI_LAI'
+                })}
+                    style={{ fontSize: '15px', borderRadius: '5%' }}
                     className="p-3 text-white bg-success">
                     Chơi lại
                 </button>
