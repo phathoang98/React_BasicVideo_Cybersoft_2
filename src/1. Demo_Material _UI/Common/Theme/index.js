@@ -18,7 +18,8 @@ const theme = createMuiTheme({
     color: {
         primary: "#D32F2F",
         secondary: "#00BCD4",
-        error: "#E64A19"
+        error: "#E64A19",
+        hello: "green"
     },
 
     shape: {

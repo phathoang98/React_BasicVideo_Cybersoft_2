@@ -1,9 +1,9 @@
-import GameBauCua from "./3. BaiTapTongHop-Hook/gameBauCua";
+import Pagination from "./4. Pagination";
 
 function App() {
   return (
     <div>
-      <GameBauCua />
+      <Pagination />
     </div>
   );
 }

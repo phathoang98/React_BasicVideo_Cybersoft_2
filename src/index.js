@@ -5,7 +5,8 @@ import reportWebVitals from './reportWebVitals';
 
 // ---- Import Material UI
 
-// import { ThemeProvider } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/core/styles";
+import theme from "./1. Demo_Material _UI/Common/Theme"
 
 /**
  *  ---------------- SETUP REDUX
@@ -27,11 +28,14 @@ const store = createStore(RootReducer,
 
 ReactDOM.render(
 
-  // <ThemeProvider>
-  // </ThemeProvider>
+
 
   <Provider store={store}>
-    <App />
+
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
+
   </Provider>
 
 
