@@ -13,9 +13,15 @@ function UseRef_demo(props) {
     let inputUserName = useRef(null);
     let inputPassword = useRef(null);
 
-    let userName = useRef('');
+    let userName, userPassword = useRef('');
 
-    let [userLogin, setUserLogin] = useState({ userName: "" });
+
+    let [userLogin, setUserLogin] = useState(
+        {
+            userName: "",
+            userPassword
+        }
+    );
 
     /**
      *  ------- Nút login lấy giá trị 
@@ -26,7 +32,6 @@ function UseRef_demo(props) {
         console.log("userName: ", userName.current);
         console.log("userLogin: ", userLogin.userName);
 
-        userName.current = "abc";
 
         setUserLogin({
             userName: userName.current

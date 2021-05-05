@@ -4,7 +4,7 @@ import ChildUseEffect_Demo from './childUseEffect_Demo';
 
 /**
  * ------ useEffect : là Hàm chạy sau khi giao diện render , dùng để thay cho 1 số Lifecycle giống ở Class component 
- *      thay cho didUpdate và didMount trong mọi trường hợp
+ *      thay cho componentDidUpdate và componentDidMount trong mọi trường hợp
  */
 
 function UseEffect_Demo(props) {

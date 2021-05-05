@@ -17,7 +17,7 @@ function QuanCuoc(props) {
      *          lại cũng sẽ bị ảnh hưởng 
      */
 
-    // NÚT TĂNG 
+    // -- NÚT TĂNG 
 
     const [propsUseSpringIncrease, setIncrease] = useSpring(() => {
         return {
@@ -33,7 +33,7 @@ function QuanCuoc(props) {
         }
     })
 
-    // Cho NÚT GIẢM 
+    // -- Cho NÚT GIẢM 
 
     const [propsUseSpringDecrease, setDecrease] = useSpring(() => {
         return {

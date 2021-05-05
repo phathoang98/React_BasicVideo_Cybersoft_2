@@ -14,7 +14,7 @@ function UseCallback_demo(props) {
      * 
      *     1. renderNotify: "Function" 
      *     2. [] : giá trị để xét xem có giá trị nào ảnh hưởng làm function bị render lại hay ko 
-     *            - nếu là "mảng rỗng" sẽ ko bị render lại 
+     *        nếu:  là "mảng rỗng" sẽ ko bị render lại 
      *            - [like] : mảng có giá trị ảnh hưởng đến function nên sẽ render lại 
      */
 

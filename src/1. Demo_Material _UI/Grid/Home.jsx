@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import { CardMedia, FormControlLabel, Checkbox, FormGroup } from '@material-ui/core';
 import { Favorite, FavoriteBorder } from '@material-ui/icons/Favorite';
 
-class Home extends Component {
+class DemoGrid extends Component {
     render() {
         return (
             <div>
@@ -50,4 +50,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default DemoGrid;

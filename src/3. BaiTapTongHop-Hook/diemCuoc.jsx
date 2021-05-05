@@ -9,7 +9,7 @@ function DiemCuoc(props) {
 
     return (
         <div>
-            <h1 className="text-center display-4" style={{ color: '#2EFE2E' }}>
+            <h1 className="text-center display-4" style={{ color: '#2EFE2E', fontWeight: 'bold' }}>
                 Game Bầu Cua
             </h1>
 

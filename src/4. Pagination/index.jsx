@@ -85,21 +85,21 @@ var newsList = [
 
 class Pagination extends Component {
 
-    constructor() {
-        super();
 
-        this.state = {
-            currentPage: 1, // Trang mặc định hiện ra từ ban đầu 
 
-            newsPerPage: 5  // Số thông tin hiện trên mỗi trang , giá trị là TỔNG các dòng tin 
-        };
-    }
+    state = {
+        currentPage: 1, // Trang mặc định hiện ra từ ban đầu 
+
+        newsPerPage: 5  // Số thông tin hiện trên mỗi trang , giá trị là TỔNG các dòng tin 
+    };
+
 
     /**
      *  ------- NÚT CHỌN TRANG 1, 2, 3 .....
      */
 
     chosePage = (event) => {
+
         this.setState({
             currentPage: Number(event.target.id)
         });
@@ -130,7 +130,7 @@ class Pagination extends Component {
 
         const currentTodos = newsList.slice(indexOfFirstNews, indexOfLastNews);
 
-        console.log(currentPage);
+
         // -- TỪ mảng mới ở trên ta duyệt và render
         const renderTodos = currentTodos.map((todo, index) => {
             return (
@@ -154,6 +154,8 @@ class Pagination extends Component {
             pageNumbers.push(i);
         }
 
+
+
         return (
             <div className="container mt-5">
 
@@ -169,7 +171,6 @@ class Pagination extends Component {
                         {renderTodos}
                     </tbody>
                 </table>
-
 
                 <div className="pagination-custom">
                     <ul id="page-numbers">

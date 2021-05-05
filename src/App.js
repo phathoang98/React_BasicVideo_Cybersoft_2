@@ -1,9 +1,10 @@
-import Pagination from "./4. Pagination";
+import DressingRoom from "./7. Dressing Room/pages";
+
 
 function App() {
   return (
     <div>
-      <Pagination />
+      <DressingRoom />
     </div>
   );
 }
